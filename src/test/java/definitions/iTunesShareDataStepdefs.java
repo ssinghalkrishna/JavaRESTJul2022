@@ -18,8 +18,7 @@ import static support.TestContext.*;
 public class iTunesShareDataStepdefs {
     @Given("^I lookup an artist by iTunes artist Id$")
     public void iLookupAnArtistByITunesArtistId() throws FileNotFoundException, UnirestException {
-        String fileName = "artist";
-        HashMap<String, String> artistDetails = getData(fileName);
+        HashMap<String, String> artistDetails = getArtist();
         String id = artistDetails.get("id");
 
         JSONObject artist = new RestWrapper().getArtistById(id);
@@ -37,9 +36,9 @@ public class iTunesShareDataStepdefs {
 
     @And("^I verify that result contains that artist Id$")
     public void iVerifyThatResultContainsThatArtistId() throws FileNotFoundException {
-        String fileName = "artist";
-        HashMap<String, String> artistDetails = getData(fileName);
+        HashMap<String, String> artistDetails = getArtist();
         String name = artistDetails.get("name");
+
         String actualArtistName = getStringTestData("artistName");
 
         assertThat(actualArtistName.equals(name)).isTrue();
@@ -47,8 +46,7 @@ public class iTunesShareDataStepdefs {
 
     @Given("^I lookup an artist by iTunes artist Id another way$")
     public void iLookupAnArtistByITunesArtistIdAnotherWay() throws FileNotFoundException, UnirestException {
-        String fileName = "artist";
-        HashMap<String, String> artistDetails = getData(fileName);
+        HashMap<String, String> artistDetails = getArtist();
         String id = artistDetails.get("id");
 
         JSONObject artist = new RestWrapper().getArtistById(id);
@@ -64,8 +62,7 @@ public class iTunesShareDataStepdefs {
 
     @And("^I verify that result contains that artist Id another way$")
     public void iVerifyThatResultContainsThatArtistIdAnotherWay() throws FileNotFoundException {
-        String fileName = "artist";
-        HashMap<String, String> artistDetails = getData(fileName);
+        HashMap<String, String> artistDetails = getArtist();
         String expectedName = artistDetails.get("name");
 
         JSONObject actualArtist = getJsonTestData(ARTIST);
