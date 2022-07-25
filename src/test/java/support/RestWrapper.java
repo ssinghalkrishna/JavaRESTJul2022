@@ -16,6 +16,7 @@ public class RestWrapper {
     private String baseUrlSearch = "https://itunes.apple.com/search";
     private final String CONTENT_TYPE = "Content-Type";
     private final String JSON = "application/json";
+    public static final String ARTIST = "artist";
 
     public JSONObject getArtistById(String id) throws UnirestException {
         HttpRequest request = Unirest.get(baseUrlLookup)
@@ -27,7 +28,7 @@ public class RestWrapper {
 
         JSONObject artistJson = response.getBody().getObject();
 
-        System.out.println("Returned artist info: " + artistJson);
+      //  System.out.println("Returned artist info: " + artistJson);
         return artistJson;
     }
 
@@ -42,7 +43,7 @@ public class RestWrapper {
         assertThat(response.getStatus()).isEqualTo(200);
 
         JSONObject artistsJson = response.getBody().getObject();
-        System.out.println("Returned artists info: " + artistsJson);
+     //   System.out.println("Returned artists info: " + artistsJson);
         return artistsJson;
     }
 
@@ -58,7 +59,7 @@ public class RestWrapper {
         assertThat(response.getStatus()).isEqualTo(200);
 
         JSONObject artistsJson = response.getBody().getObject();
-        System.out.println("Returned artists info: " + artistsJson);
+      //  System.out.println("Returned artists info: " + artistsJson);
         return artistsJson;
     }
 
@@ -74,7 +75,7 @@ public class RestWrapper {
         assertThat(response.getStatus()).isEqualTo(200);
 
         JSONObject artistsJson = response.getBody().getObject();
-        System.out.println("Returned artists info: " + artistsJson);
+       // System.out.println("Returned artists info: " + artistsJson);
         return artistsJson;
     }
 
@@ -90,7 +91,7 @@ public class RestWrapper {
         assertThat(response.getStatus()).isEqualTo(200);
 
         JSONObject artistsJson = response.getBody().getObject();
-        System.out.println("Returned artists info: " + artistsJson);
+       // System.out.println("Returned artists info: " + artistsJson);
         return artistsJson;
     }
 
@@ -105,7 +106,7 @@ public class RestWrapper {
         assertThat(response.getStatus()).isEqualTo(200);
 
         JSONObject artistsJson = response.getBody().getObject();
-        System.out.println("Returned artists info: " + artistsJson);
+       // System.out.println("Returned artists info: " + artistsJson);
         return artistsJson;
     }
 
