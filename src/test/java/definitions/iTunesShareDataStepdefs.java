@@ -19,6 +19,7 @@ public class iTunesShareDataStepdefs {
     @Given("^I lookup an artist by iTunes artist Id$")
     public void iLookupAnArtistByITunesArtistId() throws FileNotFoundException, UnirestException {
         HashMap<String, String> artistDetails = getArtist();
+
         String id = artistDetails.get("id");
 
         JSONObject artist = new RestWrapper().getArtistById(id);
@@ -37,16 +38,18 @@ public class iTunesShareDataStepdefs {
     @And("^I verify that result contains that artist Id$")
     public void iVerifyThatResultContainsThatArtistId() throws FileNotFoundException {
         HashMap<String, String> artistDetails = getArtist();
-        String name = artistDetails.get("name");
+
+        String expectedName = artistDetails.get("name");
 
         String actualArtistName = getStringTestData("artistName");
 
-        assertThat(actualArtistName.equals(name)).isTrue();
+        assertThat(actualArtistName.equals(expectedName)).isTrue();
     }
 
     @Given("^I lookup an artist by iTunes artist Id another way$")
     public void iLookupAnArtistByITunesArtistIdAnotherWay() throws FileNotFoundException, UnirestException {
         HashMap<String, String> artistDetails = getArtist();
+
         String id = artistDetails.get("id");
 
         JSONObject artist = new RestWrapper().getArtistById(id);
@@ -63,6 +66,7 @@ public class iTunesShareDataStepdefs {
     @And("^I verify that result contains that artist Id another way$")
     public void iVerifyThatResultContainsThatArtistIdAnotherWay() throws FileNotFoundException {
         HashMap<String, String> artistDetails = getArtist();
+
         String expectedName = artistDetails.get("name");
 
         JSONObject actualArtist = getJsonTestData(ARTIST);
