@@ -16,6 +16,7 @@ public class RestWrapper {
     private final String CONTENT_TYPE = "Content-Type";
     private final String JSON = "application/json";
     public static final String ARTIST = "artist";
+    private static final String API_KEY = "PleaseProvideKey";
 
     private String baseUrlLookupGeoCode = "https://maps.googleapis.com/maps/api/geocode/json";
 
@@ -118,7 +119,7 @@ public class RestWrapper {
     public JSONObject getGeoCodeByZip(String zip) throws UnirestException {
         HttpRequest request = Unirest.get(baseUrlLookupGeoCode)
                 .queryString("address", zip)
-                .queryString("key", "AIzaSyBZHBKgaY3FKOAFizNy9DcWCnEF-JBqyvA");
+                .queryString("key", API_KEY);
 
         HttpResponse<JsonNode> response = request.asJson();
 
@@ -149,7 +150,7 @@ public class RestWrapper {
         HttpRequest request = Unirest.get(baseUrlLookupTimeZone)
                 .queryString("timestamp", timestamp)
                 .queryString("location", location)
-                .queryString("key", "AIzaSyBZHBKgaY3FKOAFizNy9DcWCnEF-JBqyvA");
+                .queryString("key", API_KEY);
 
         HttpResponse<JsonNode> response = request.asJson();
 
